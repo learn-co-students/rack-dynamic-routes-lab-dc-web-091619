@@ -10,8 +10,8 @@ class Application
     if req.path.match(/items/)
       req_item = req.path.split("/items/").last
 
-      if @@items.find {|i| i.name == req_item}
-        req_item_price = @@items.find{|i| i.name == req_item}.price
+      if Item.all.find {|i| i.name == req_item}
+        req_item_price = Item.all.find{|i| i.name == req_item}.price
 
         resp.write req_item_price
         resp.status = 200
